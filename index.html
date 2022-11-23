@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/styles.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poiret+One&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>My Weather App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="weather-app">
+      <div class="entercity">
+        <form id="input-city">
+          <input type="text" placeholder="Enter Your City" autocomplete="off" autofocus="on" id="city-search-input" />
+          <input type="submit" value="Search" id="search" />
+
+          <button class="btn btn-success" id="showPosition">
+            Current
+          </button>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="temperature">
+            <h1 id="current-temp">
+              66°
+            </h1>
+            <span id="units">
+              <a href="#" id="fahrenheit">F</a>
+              |
+              <a href="#" id="celsius">C</a>
+            </span>
+          </div>
+
+          <div class="city-name">
+            <h2 id="city">
+              Atlanta, GA
+            </h2>
+            <h3 class="current-date" id="todays-date">
+              Tue, Oct 11, 9:32PM
+            </h3>
+          </div>
+        </div>
+
+        <div class="city-info">
+          <div class="city-numbers">
+            <div class="row">
+              <div class="col currentConditions">
+                <p>
+                  72°F High
+                </p>
+                <p>
+                  45°F <br />
+                  Low
+                </p>
+              </div>
+              <div class="col">
+                <p>
+                  <span id="humidity"></span>% <br />
+                  Humidity
+                </p>
+                <p>
+                  <span id="wind"></span> mph <br />
+                  Wind
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-img">
+            <img class="card-img-top" src="images/cloudy-night.png" alt="Card image cap" width="300px" />
+          </div>
+
+          <h6 class="five-day">
+            Next 5 days forecast:
+          </h6>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Wed</li>
+                    <li class="list-group-item">
+                      <img src="images/lightening.png" alt="lightening" width="25px" />
+                    </li>
+                    <li class="list-group-item">70°/61°</li>
+                  </ul>
+                </div>
+
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Thu</li>
+                    <li class="list-group-item">
+                      <img src="images/partly-cloudy.png" alt="partly-cloudy" width="30px" />
+                    </li>
+                    <li class="list-group-item">70°/62°</li>
+                  </ul>
+                </div>
+
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Fri</li>
+
+                    <li class="list-group-item">
+                      <img src="images/sunny.png" alt="sunny" width="30px" />
+                    </li>
+                    <li class="list-group-item">75°/61°</li>
+                  </ul>
+                </div>
+
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Sat</li>
+                    <li class="list-group-item">
+                      <img src="images/sunny.png" alt="sunny" width="30px" />
+                    </li>
+                    <li class="list-group-item">73°/62°</li>
+                  </ul>
+                </div>
+
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Sun</li>
+                    <li class="list-group-item">
+                      <img src="images/partly-cloudy.png" alt="partly-cloudy" width="30px" />
+                    </li>
+                    <li class="list-group-item">75°/60°</li>
+                  </ul>
+                </div>
+
+                <div class="col-2">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Mon</li>
+                    <li class="list-group-item">
+                      <img src="images/partly-cloudy.png" alt="partly-cloudy" width="30px" />
+                    </li>
+                    <li class="list-group-item">75°/65°</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="src/index.js">
+    src = "https://kit.fontawesome.com/a55c46ede8.js"
+    crossorigin = "anonymous"
+  </script>
+</body>
+
+</html>
