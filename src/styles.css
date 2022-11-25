@@ -1,7 +1,7 @@
 .weather-app {
   border: 1px solid #706f6f;
   border-radius: 10px;
-  background-color: #fcddfc30;
+  background-color: #e0abe030;
   margin: 82px auto;
   padding: 5px;
   max-width: 870px;
@@ -9,10 +9,11 @@
   font-family: "Poiret One", cursive;
   color: #2f0e42;
   font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .entercity {
-  margin: 0 38px;
+  margin: 10px 38px;
   border-radius: 5px;
 }
 
@@ -35,6 +36,16 @@
   border-color: #cdc8d6;
 }
 
+#search:hover {
+  background-image: linear-gradient(
+    to right,
+    #a1c4fd 0%,
+    #c2e9fb 51%,
+    #a1c4fd 100%
+  );
+  cursor: pointer;
+}
+
 .enter-city input {
   margin: 23px 13px;
   position: relative;
@@ -55,10 +66,14 @@
   bottom: 2px;
 }
 
-#showPosition :hover {
+#showPosition:hover {
   color: #ffffff;
-  background-color: rgb(9, 1, 15);
-  border-color: #5c091bba;
+  background-image: linear-gradient(
+    to right,
+    #fbc2eb 0%,
+    #a6c1ee 51%,
+    #fbc2eb 100%
+  );
   transition: background-color 1s ease;
   cursor: pointer;
 }
@@ -74,7 +89,7 @@
   border: 1px solid #928f9350;
   width: 245px;
   color: #353435;
-  background-color: #fef9ff;
+  background-color: #e0abe030;
   font-weight: 800;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -103,6 +118,7 @@
   font-weight: 450;
   font-style: italic;
 }
+
 .city-info {
   margin: -35px auto;
   position: relative;
@@ -120,7 +136,7 @@
   border-radius: 10px;
   width: 185px;
   color: #353435;
-  background-color: #fef9ff;
+  background-color: #e0abe030;
   font-weight: 400;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -145,7 +161,7 @@
 
 .five-day {
   position: relative;
-  bottom: 507px;
+  bottom: 490px;
   left: 265px;
   color: #353435;
 }
@@ -154,7 +170,7 @@
   z-index: -1;
   text-align: center;
   position: relative;
-  bottom: 502px;
+  bottom: 483px;
   left: 253px;
   display: flex;
   min-width: 0;
@@ -168,7 +184,7 @@
 }
 
 .card-img-top {
-  max-width: 265px;
+  max-width: 255px;
   display: block;
   position: relative;
   top: 60px;
