@@ -1,15 +1,14 @@
 .weather-app {
   border: 1px solid #706f6f;
   border-radius: 10px;
-  background-color: #e0abe030;
-  margin: 82px auto;
+  margin: 30px auto;
   padding: 5px;
-  max-width: 870px;
+  max-width: 850px;
   height: 650px;
   font-family: "Poiret One", cursive;
-  color: #2f0e42;
   font-weight: bolder;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #d7adf02f;
 }
 
 .entercity {
@@ -128,7 +127,7 @@
 
 .city-numbers {
   margin: -5px;
-  bottom: 37px;
+  bottom: 60px;
   left: 10px;
   position: relative;
   padding: 15px;
@@ -139,6 +138,11 @@
   background-color: #e0abe030;
   font-weight: 400;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.github-repo-link {
+  position: relative;
+  bottom: 20px;
 }
 
 .numbers {
@@ -155,32 +159,10 @@
 
 .card-img {
   position: relative;
-  bottom: 595px;
+  bottom: 625px;
   left: 390px;
-}
-
-.five-day {
-  position: relative;
-  bottom: 490px;
-  left: 265px;
-  color: #353435;
-}
-
-.card {
-  z-index: -1;
-  text-align: center;
-  position: relative;
-  bottom: 483px;
-  left: 253px;
-  display: flex;
-  min-width: 0;
-  height: 180px;
-  background-color: var(--bs-card-bg);
-  background-clip: border-box;
-  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-  border-radius: var(--bs-card-border-radius);
-  max-width: 65%;
-  box-shadow: #00000059 0px 5px 15px;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .card-img-top {
@@ -188,4 +170,30 @@
   display: block;
   position: relative;
   top: 60px;
+  margin: 0 auto;
+  right: 285px;
+}
+
+.five-day {
+  position: relative;
+  bottom: 520px;
+  left: 234px;
+  color: #353435;
+  font-weight: 700;
+}
+
+.card {
+  z-index: -1;
+  background-color: #e0abe030;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  bottom: 515px;
+  left: 230px;
+  display: flex;
+  background-clip: border-box;
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius);
+  max-width: 550px;
+  box-shadow: #00000059 0px 5px 15px;
 }
