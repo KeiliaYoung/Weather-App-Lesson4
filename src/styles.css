@@ -93,6 +93,16 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.temperature .active {
+  color: #000000;
+  cursor: default;
+  text-decoration: none;
+}
+
+.temperature .active:hover {
+  text-decoration: none;
+}
+
 .row .night {
   position: relative;
   top: -4px;
@@ -169,12 +179,12 @@
   max-width: 255px;
   display: block;
   position: relative;
-  top: 60px;
+  top: 92px;
   margin: 0 auto;
-  right: 285px;
+  right: 273px;
 }
 
-.five-day {
+.six-day {
   position: relative;
   bottom: 520px;
   left: 234px;
