@@ -35,6 +35,7 @@ function displayWeather(response) {
   console.log(response);
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
+  let currentDescription = document.querySelector("#current-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
@@ -43,6 +44,7 @@ function displayWeather(response) {
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
+  currentDescription.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
@@ -64,20 +66,15 @@ function searchCity(city) {
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "28483fb0bac69b11e99890f72d1b1c8f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeather);
+  let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(displayWeather);
 }
 
 function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let enterCity = document.querySelector("#input-city");
-enterCity.addEventListener("submit", showCity);
-
-let currentButton = document.querySelector("#showPosition");
-currentButton.addEventListener("click", getCurrentLocation);
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -85,13 +82,6 @@ function handleSubmit(event) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = searchInput.value;
 }
-
-searchCity("Atlanta");
-
-let celsiusTemperature = null;
-
-let form = document.querySelector("#input-city");
-form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -112,9 +102,22 @@ function displayCelsiusTemperature(event) {
   currentTempElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+let enterCity = document.querySelector("#input-city");
+enterCity.addEventListener("submit", showCity);
+
+let currentButton = document.querySelector("#showPosition");
+currentButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
+
+let form = document.querySelector("#input-city");
+form.addEventListener("submit", handleSubmit);
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity("Atlanta");

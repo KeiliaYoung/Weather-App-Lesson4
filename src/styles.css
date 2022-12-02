@@ -169,7 +169,7 @@
 
 .card-img {
   position: relative;
-  bottom: 625px;
+  bottom: 675px;
   left: 390px;
   max-width: 240px;
   margin: 0 auto;
@@ -184,9 +184,18 @@
   right: 273px;
 }
 
+#current-description {
+  position: relative;
+  right: 213px;
+  top: 55px;
+  color: #775e97;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
 .six-day {
   position: relative;
-  bottom: 520px;
+  bottom: 557px;
   left: 234px;
   color: #353435;
   font-weight: 700;
@@ -198,7 +207,7 @@
   font-size: 14px;
   text-align: center;
   position: relative;
-  bottom: 515px;
+  bottom: 549px;
   left: 230px;
   display: flex;
   background-clip: border-box;
