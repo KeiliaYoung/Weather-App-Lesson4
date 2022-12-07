@@ -109,7 +109,7 @@ function showCity(event) {
 
 function searchCity(city) {
   let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeather);
 }
 
@@ -118,7 +118,7 @@ function showPosition(position) {
   let lon = position.coords.longitude;
 
   let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(`${apiUrl}`).then(displayWeather);
 }
 
@@ -134,24 +134,24 @@ function handleSubmit(event) {
   h1.innerHTML = searchInput.value;
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let currentTempElement = document.querySelector("#current-temp");
+// function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   let currentTempElement = document.querySelector("#current-temp");
 
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
-}
+//   celsiusLink.classList.remove("active");
+//   fahrenheitLink.classList.add("active");
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
+// }
 
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let currentTempElement = document.querySelector("#current-temp");
+// function displayCelsiusTemperature(event) {
+//   event.preventDefault();
+//   let currentTempElement = document.querySelector("#current-temp");
 
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  currentTempElement.innerHTML = Math.round(celsiusTemperature);
-}
+//   celsiusLink.classList.add("active");
+//   fahrenheitLink.classList.remove("active");
+//   currentTempElement.innerHTML = Math.round(celsiusTemperature);
+// }
 
 let enterCity = document.querySelector("#input-city");
 enterCity.addEventListener("submit", showCity);
@@ -159,14 +159,16 @@ enterCity.addEventListener("submit", showCity);
 let currentButton = document.querySelector("#showPosition");
 currentButton.addEventListener("click", getCurrentLocation);
 
-let celsiusTemperature = null;
+// let celsiusTemperature = null;
 
 let form = document.querySelector("#input-city");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+// let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+// let celsiusLink = document.querySelector("#celsius-link");
+// celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity(Atlanta);

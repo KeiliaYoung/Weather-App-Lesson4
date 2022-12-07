@@ -93,20 +93,9 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-a:-webkit-any-link {
-  color: -webkit-link;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.temperature .active {
-  color: #000000;
-  cursor: default;
-  text-decoration: none;
-}
-
-.temperature .active:hover {
-  text-decoration: none;
+#current-temp {
+  position: relative;
+  top: 15px;
 }
 
 .row .night {
@@ -115,9 +104,12 @@ a:-webkit-any-link {
   right: 51px;
 }
 
-#units {
+#fahrenheit {
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 35px;
+  bottom: 46px;
 }
 
 .city-name {
@@ -150,7 +142,7 @@ a:-webkit-any-link {
   border: 1px solid #f1e3f43b;
   border-radius: 10px;
   width: 185px;
-  color: #353435;
+  color: #971807;
   background-color: #e0abe030;
   font-weight: 400;
   box-shadow: #00000059 0px 5px 15px;
