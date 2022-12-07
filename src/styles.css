@@ -93,6 +93,12 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .temperature .active {
   color: #000000;
   cursor: default;
@@ -147,12 +153,24 @@
   color: #353435;
   background-color: #e0abe030;
   font-weight: 400;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: #00000059 0px 5px 15px;
 }
 
 .github-repo-link {
   position: relative;
   bottom: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+#max-temp {
+  color: #ad3b3b;
+}
+
+#min-temp {
+  color: #543463;
 }
 
 .numbers {

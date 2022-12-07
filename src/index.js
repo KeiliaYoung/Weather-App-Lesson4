@@ -31,32 +31,41 @@ h3.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
 
 
 // 6 day forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+
 function displayWeatherForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let weatherForecastElement = document.querySelector("#weather-forecast");
 
   let weatherForecastHTML = `<div class="row">`;
 
-  let forecastDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  forecastDays.forEach(function (day) {
-
-    weatherForecastHTML = weatherForecastHTML + `
-      <div class = "col-2">
-        <ul class = "list-group list-group-flush">
-          <li class = "list-group-item"> ${day}</li> 
-          <li class = "list-group-item">
-          <img src = "images/thunder.svg"
-          alt = "lightening"
-          width = "45px"/>
-          </li> 
-          <li class = "list-group-item"> 70° / 61° </li> 
-        </ul> 
-      </div>
-  `;
-
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      weatherForecastHTML = weatherForecastHTML +
+        `<div class = "col-2">
+          <ul class = "list-group list-group-flush">
+            <li class = "list-group-item"> ${formatDay(forecastDay.time)}</li> 
+            <li class = "list-group-item">
+            <img src = "${forecastDay.condition.icon_url}"
+            width = "45px"/>
+            </li>  
+            <li class = "list-group-item">
+           <span id = "max-temp"> ${Math.round(forecastDay.temperature.maximum)}° </span>
+          /<span id = "min-temp">${Math.round(forecastDay.temperature.minimum)}° </span> </li>
+          </ul>  
+        </div>`;
+    }
   });
 
-  weatherForecastHTML = weatherForecastHTML + `</div>`;
+  weatherForecastHTML = weatherForecastHTML + ` </div>`;
   weatherForecastElement.innerHTML = weatherForecastHTML;
 }
 
@@ -66,7 +75,7 @@ function displayWeatherForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayWeatherForecast);
 }
@@ -90,7 +99,6 @@ function displayWeather(response) {
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
 
   getForecast(response.data.coordinates);
-
 }
 
 function showCity(event) {
@@ -138,10 +146,10 @@ function displayFahrenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  let currentTempElement = document.querySelector("#current-temp");
 
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(celsiusTemperature);
 }
 
@@ -162,5 +170,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-searchCity("Atlanta");
