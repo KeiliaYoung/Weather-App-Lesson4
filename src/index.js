@@ -73,7 +73,6 @@ function displayWeatherForecast(response) {
 // Search Engine
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
   console.log(apiUrl);
@@ -89,7 +88,7 @@ function displayWeather(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.temperature.current;
+  // celsiusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -171,4 +170,4 @@ form.addEventListener("submit", handleSubmit);
 // let celsiusLink = document.querySelector("#celsius-link");
 // celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-searchCity(Atlanta);
+searchCity();

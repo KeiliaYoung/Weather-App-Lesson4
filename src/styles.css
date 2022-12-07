@@ -93,6 +93,10 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+#thinking-emoji {
+  max-width: 50px;
+}
+
 #current-temp {
   position: relative;
   top: 15px;
