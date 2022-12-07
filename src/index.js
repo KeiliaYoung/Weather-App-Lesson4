@@ -29,7 +29,47 @@ let month = months[now.getMonth()];
 
 h3.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
 
+
+// 6 day forecast
+function displayWeatherForecast(response) {
+  console.log(response.data.daily);
+  let weatherForecastElement = document.querySelector("#weather-forecast");
+
+  let weatherForecastHTML = `<div class="row">`;
+
+  let forecastDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  forecastDays.forEach(function (day) {
+
+    weatherForecastHTML = weatherForecastHTML + `
+      <div class = "col-2">
+        <ul class = "list-group list-group-flush">
+          <li class = "list-group-item"> ${day}</li> 
+          <li class = "list-group-item">
+          <img src = "images/thunder.svg"
+          alt = "lightening"
+          width = "45px"/>
+          </li> 
+          <li class = "list-group-item"> 70° / 61° </li> 
+        </ul> 
+      </div>
+  `;
+
+  });
+
+  weatherForecastHTML = weatherForecastHTML + `</div>`;
+  weatherForecastElement.innerHTML = weatherForecastHTML;
+}
+
+
 // Search Engine
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayWeatherForecast);
+}
 
 function displayWeather(response) {
   console.log(response);
@@ -49,6 +89,8 @@ function displayWeather(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
 
+  getForecast(response.data.coordinates);
+
 }
 
 function showCity(event) {
@@ -66,6 +108,7 @@ function searchCity(city) {
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
+
   let apiKey = "ebb9dt4f3c1fda5064cb77ffeebaaf7o";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(displayWeather);
